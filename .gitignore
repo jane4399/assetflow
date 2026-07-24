@@ -1,0 +1,42 @@
+# ---------- .NET ----------
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+*.user
+*.suo
+project.lock.json
+artifacts/
+.vs/
+*.dll
+*.pdb
+
+# EF Core / local databases
+*.mdf
+*.ldf
+
+# ---------- Node / Angular ----------
+node_modules/
+dist/
+.angular/
+/frontend/dist/
+/frontend/.angular/
+npm-debug.log*
+yarn-error.log*
+
+# ---------- Tests / coverage ----------
+[Tt]est[Rr]esults/
+coverage/
+*.trx
+*.coverage
+
+# ---------- Secrets / local config ----------
+appsettings.*.Local.json
+*.env
+.env
+
+# ---------- IDE / OS ----------
+.idea/
+*.swp
+.DS_Store
+Thumbs.db

@@ -1,0 +1,229 @@
+:root {
+  --bg: #0f172a;
+  --surface: #ffffff;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --text: #0f172a;
+  --primary: #1d4ed8;
+  --primary-hover: #1e40af;
+  --danger: #dc2626;
+  --success: #059669;
+  --warning: #d97706;
+  --radius: 8px;
+  --shadow: 0 1px 3px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(15, 23, 42, 0.06);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f1f5f9;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 20px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 20px;
+}
+
+h1, h2, h3 {
+  margin: 0 0 12px;
+  font-weight: 650;
+}
+
+label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background: #fff;
+  color: var(--text);
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: 2px solid rgba(29, 78, 216, 0.35);
+  border-color: var(--primary);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  padding: 9px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background: var(--primary);
+  color: #fff;
+  transition: background 0.15s ease;
+}
+
+button:hover:not(:disabled) {
+  background: var(--primary-hover);
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+button.secondary {
+  background: #e2e8f0;
+  color: var(--text);
+}
+
+button.danger {
+  background: var(--danger);
+}
+
+.field {
+  margin-bottom: 14px;
+}
+
+.error {
+  color: var(--danger);
+  font-size: 0.82rem;
+  margin-top: 4px;
+}
+
+.form-error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin-bottom: 14px;
+  font-size: 0.88rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+th, td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  color: var(--muted);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #e2e8f0;
+  color: #334155;
+}
+
+.badge.status-Operational, .badge.status-Completed { background: #dcfce7; color: #166534; }
+.badge.status-Maintenance, .badge.status-InProgress { background: #fef9c3; color: #854d0e; }
+.badge.status-Offline, .badge.status-Cancelled { background: #fee2e2; color: #991b1b; }
+.badge.status-OnHold { background: #e0e7ff; color: #3730a3; }
+
+.badge.priority-Low { background: #e2e8f0; color: #334155; }
+.badge.priority-Medium { background: #dbeafe; color: #1e40af; }
+.badge.priority-High { background: #ffedd5; color: #9a3412; }
+.badge.priority-Critical { background: #fee2e2; color: #991b1b; }
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-end;
+  margin-bottom: 16px;
+}
+
+.toolbar .field {
+  margin-bottom: 0;
+  min-width: 160px;
+}
+
+.row-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.pagination {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 16px;
+  justify-content: flex-end;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.navbar {
+  background: var(--bg);
+  color: #e2e8f0;
+}
+
+.navbar .container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.navbar a {
+  color: #cbd5e1;
+  font-weight: 600;
+}
+
+.navbar a.active {
+  color: #fff;
+}
+
+.brand {
+  font-weight: 750;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.spacer {
+  flex: 1;
+}

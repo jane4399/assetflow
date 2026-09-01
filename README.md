@@ -4,7 +4,7 @@
 
 Built by **Yilin Xie** · [github.com/jane4399](https://github.com/jane4399) · jaxie@ucsd.edu · MIT licensed.
 
-AssetFlow models the everyday domain of an industrial operator: **sites** own **assets** (pumps, compressors, valves), and **work orders** are raised against those assets and assigned to **technicians**. It is deliberately the same "authenticated entity CRUD" shape as a typical FastAPI task-tracker, re-expressed idiomatically in the Microsoft stack (C# / .NET / Angular / Azure) that Houston energy-IT roles ask for.
+AssetFlow models sites, industrial assets such as pumps and compressors, and the work orders assigned to technicians who maintain them. The API enforces authenticated, role-aware access to those records, while the Angular client provides the corresponding operational views and workflows.
 
 ---
 
@@ -212,7 +212,7 @@ Errors are returned as RFC 9457 `application/problem+json`; validation failures 
 
 ## Azure deployment note
 
-The stack maps cleanly onto Azure PaaS, which is what Houston energy-IT shops (e.g. Chevron) tend to standardize on:
+The components map to the following Azure managed services:
 
 - **Azure App Service (Linux)** hosts the containerized API (the multi-stage image already runs as non-root). The Angular build deploys to **Azure Static Web Apps** or a second App Service / Storage static site.
 - **Azure SQL Database** replaces the local SQL Server — only the connection string changes; `DatabaseProvider` stays `SqlServer`. (Azure Database for PostgreSQL is the drop-in if the provider is switched.)
@@ -222,11 +222,10 @@ The stack maps cleanly onto Azure PaaS, which is what Houston energy-IT shops (e
 
 ---
 
-## Honest limitations
+## Limitations
 
 - Access tokens only — no refresh-token rotation or revocation list yet.
 - No dedicated user-management endpoints, so the work-order UI preserves an existing technician assignment rather than offering a technician picker.
 - The checked-in EF migration is SQL Server-specific; targeting Postgres means regenerating migrations for Npgsql.
 - Free-text search uses SQL `LIKE`; case sensitivity follows the database collation (case-insensitive on default SQL Server, case-sensitive on Postgres).
 - Automated coverage focuses on representative slices (a service, a validator, auth endpoints) rather than exhaustive breadth.
-- **This environment has no .NET SDK or Node**, so the code was written and statically self-reviewed but not compiled here — build on a machine with the .NET 8 SDK and Node 20+.

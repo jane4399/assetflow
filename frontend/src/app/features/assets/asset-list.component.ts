@@ -93,11 +93,12 @@ import { SiteService } from '../../core/services/site.service';
 
       @if (loading()) {
         <p class="muted">Loading…</p>
-      } @else if (result(); as data) {
-        @if (data.items.length === 0) {
-          <p class="muted">No assets match your filters.</p>
-        } @else {
-          <table>
+      } @else {
+        @if (result(); as data) {
+          @if (data.items.length === 0) {
+            <p class="muted">No assets match your filters.</p>
+          } @else {
+            <table>
             <thead>
               <tr>
                 <th>Name</th>
@@ -116,19 +117,20 @@ import { SiteService } from '../../core/services/site.service';
                 </tr>
               }
             </tbody>
-          </table>
+            </table>
 
-          <div class="pagination">
-            <span class="muted">
-              Page {{ data.page }} of {{ data.totalPages }} · {{ data.totalCount }} total
-            </span>
-            <button class="secondary" type="button" [disabled]="!data.hasPreviousPage" (click)="changePage(-1)">
-              Prev
-            </button>
-            <button class="secondary" type="button" [disabled]="!data.hasNextPage" (click)="changePage(1)">
-              Next
-            </button>
-          </div>
+            <div class="pagination">
+              <span class="muted">
+                Page {{ data.page }} of {{ data.totalPages }} · {{ data.totalCount }} total
+              </span>
+              <button class="secondary" type="button" [disabled]="!data.hasPreviousPage" (click)="changePage(-1)">
+                Prev
+              </button>
+              <button class="secondary" type="button" [disabled]="!data.hasNextPage" (click)="changePage(1)">
+                Next
+              </button>
+            </div>
+          }
         }
       }
     </div>
